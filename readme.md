@@ -2,7 +2,7 @@
 In this project, you will develop bots that play a simple game. Each bot has a different strategy. You will pit these bots against each other to determine which strategy is more successful in this context.
 
 # Teams
-Teams have been assigned for this project as follows. They are fixed - no switching or cooperating across team lines. It is up to teammates to ensure that their partner adheres to the <a href="https://www.american.edu/academics/integrity/code.cfm">American University Honor Code.
+Teams have been assigned for this project as follows. They are fixed - no switching or cooperating across team lines. It is up to teammates to ensure that their partner adheres to the <a href="https://www.american.edu/academics/integrity/code.cfm">American University Honor Code.</a>
 
 0. Drew Meseck & Benjamin Doiron
 1. Deirdre Belson & Marlon Teo-Diaz
