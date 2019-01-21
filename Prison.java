@@ -15,11 +15,13 @@ public class Prison {
     boolean lastChoicePrisonerA = BETRAYED; //Set initially to BETRAYED for testing
     boolean lastChoicePrisonerB;
 
+    //Example 1: PrisonerB using no prior information
     lastChoicePrisonerB = randomChoice();
 
     System.out.println("If Random Choice is the strategy, B decides to betray : "
        + lastChoicePrisonerB);
 
+    //Example 2: PrisonerB using the last choice made by A to make a decision
     lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
 
     System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
