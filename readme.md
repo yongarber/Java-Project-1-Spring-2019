@@ -61,9 +61,6 @@ Using your five strategies and your scoring method, determine which strategy is 
 ## Step 6 - Push to Github
 Do not forget to push your final submission to Github before the deadline.
 
-## Step 7 - Peer and Self Review
-A separate form will be made available for you to rate your own performance and your partner's.
-
 # Grading
 Grading will be assigned according to the following categories. As described in the syllabus, each category can receive a  &#10003; (satisfactory); a &#10003;+ (above and beyond); a &#10003;- (incorrect, incomplete, or sloppy); or in the worst case an &#10005;, meaning it was altogether missing or inappropriate (assigned at the instructor's discretion). A category assigned an &#10005; can carry significant grade penalties for this assignment.
 
