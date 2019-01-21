@@ -42,7 +42,7 @@ public static boolean betrayIfBetrayed(boolean lastChoice){
 ```
 
 ## Step 3 - Write one method for each strategy.
-Following the design pattern for the `randomChoice()` strategy, define one method for each of your team's five strategies (the example methods do not count). Assume that each prisoner can know the outcome of one or more previous encounters with the other prisoner through parameters passed to the method.
+Following the design pattern for the example strategies, define one method for each of your team's five strategies (the example methods do not count). Assume that each prisoner can know the outcome of one or more previous encounters with the other prisoner through parameters passed to the method.
 
 ## Step 3.5 - Commit and Push to Github
 Remember, this is not like using Blackboard for submitting assignments. As you are working with your teammate, you will need to frequently push code to the Github repo so that your teammate can access it. If you wait to the last minute, you could have conflicts that are difficult to resolve. It is much better to get into a rhythm with your partner early rather. To get full credit for your part in this, I need to see multiple commits from each team member.
