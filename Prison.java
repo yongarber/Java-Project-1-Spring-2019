@@ -9,7 +9,7 @@ public class Prison {
 
   public static void main(String[] args){
   boolean [] playerA = [BETRAYED]; //for the first turn player A will always start  as Betrayed
-  boolean [] playerB = []; //player B will change 
+  boolean [] playerB = []; //player B will change depending on the strategy
   int playerAScore = 0;
   int playerBScore = 0;
 
@@ -70,9 +70,23 @@ public class Prison {
       }
   }
 
+  public static boolean lastChoice(player){ //checks the last choice a player made
+    boolean last = player.get(player.size() - 1);
+    return last;
+  }
 
+  public static void moves(){ // checks the moves that each player makes (compares the two strategies)
+    int strat = 5;
+    switch (strat){
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+    }
+  }
 
-  public static void finalScores(){
+  public static void finalScores(){ //compares the lists and adds up the total scores
     int i = 0;
     while(i < playerA.size()){
     if (playerA[i] == BETRAYED && playerB[i] == BETRAYED){
