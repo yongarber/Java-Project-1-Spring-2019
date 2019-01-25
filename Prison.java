@@ -39,4 +39,14 @@ public class Prison {
       else
         return randomChoice();
   }
+  public static boolean Peace(){
+        return SILENT;
+
+  public static boolean ZigZeg(boolean lastChoice){
+      if (lastChoice == BETRAYED)
+        return SILENT;
+      else
+        return BETRAYED;
+  }
+  // ZigZeg is for the previous choice of your own player you switch approach
 }
