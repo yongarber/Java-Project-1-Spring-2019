@@ -12,10 +12,10 @@ public class Prison {
 
     //The last choice of each prisoner.
 
-    boolean lastChoicePrisonerA = BETRAYED; //Set initially to BETRAYED for testing
+    boolean lastChoicePrisonerA //= BETRAYED; //Set initially to BETRAYED for testing
     boolean lastChoicePrisonerB;
 
-    //Example 1: PrisonerB using no prior information
+  '''  //Example 1: PrisonerB using no prior information
     lastChoicePrisonerB = randomChoice();
 
     System.out.println("If Random Choice is the strategy, B decides to betray : "
@@ -25,7 +25,7 @@ public class Prison {
     lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
 
     System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
-       + lastChoicePrisonerB);
+       + lastChoicePrisonerB);'''
   }
 
   public static boolean randomChoice(){
