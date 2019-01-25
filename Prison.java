@@ -8,7 +8,10 @@ public class Prison {
   final static boolean SILENT = false;
 
   public static void main(String[] args){
-
+  boolean [] playerA = [BETRAYED]; //for the first turn player A will always start  as Betrayed
+  boolean [] playerB = []; //player B will change 
+  int playerAScore = 0;
+  int playerBScore = 0;
 
     //The last choice of each prisoner.
 
@@ -65,6 +68,29 @@ public class Prison {
       else{
         return SILENT;
       }
+  }
+
+
+
+  public static void finalScores(){
+    int i = 0;
+    while(i < playerA.size()){
+    if (playerA[i] == BETRAYED && playerB[i] == BETRAYED){
+      playerAScore = playerAScore + 2;
+      playerBScore = playerBScore + 2;
+    }
+    if (playerA[i] == BETRAYED && playerB[i] == SILENT){
+      playerBScore = playerBScore + 3;
+    }
+    if (playerA[i] == SILENT && playerB[i] == BETRAYED){
+      playerAScore = playerAScore + 3;
+    }
+    if (playerA[i]) == SLILENT && playerBScore == SILENT){
+      playerAScore = playerAScore + 1;
+      playerBScore = playerBScore + 1;
+    }
+  }
+    i = i + 1;
   }
   }
   // ZigZeg is for the previous choice of your own player you switch approach
