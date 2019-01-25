@@ -75,14 +75,19 @@ public class Prison {
     return last;
   }
 
-  public static void moves(){ // checks the moves that each player makes (compares the two strategies)
+  public static void moves(player){ // checks the moves that each player makes (compares the two strategies)
     int strat = 5;
     switch (strat){
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-      case 5:
+      case 1: Revange(lastChoice(player))
+              break;
+      case 2: Peace()
+              break;
+      case 3: ZigZeg(lastChoice(player))
+              break;
+      case 4: War(lastChoice(player))
+              break;
+      case 5: titForTat(lastChoice(player))
+              break;
     }
   }
 
