@@ -43,15 +43,28 @@ public class Prison {
       while (lastChoice != BETRAYED)
         return SILENT;
       return BETRAYED;
+    }
 // Revange is silent until he gets betrayed and from then on he betrayes.
   public static boolean Peace(){
         return SILENT;
+      }
 // Peace is always giving Silens
   public static boolean ZigZeg(boolean lastChoice){
       if (lastChoice == BETRAYED)
         return SILENT;
       else
         return BETRAYED;
+      }
+  public static boolean War(boolean lastChoice){
+      return BETRAYED;
+    }
+  public static boolean titForTat(boolean lastChoice){
+      if (lastChoice == BETRAYED){
+        return BETRAYED;
+      }
+      else{
+        return SILENT;
+      }
+  }
   }
   // ZigZeg is for the previous choice of your own player you switch approach
-}
