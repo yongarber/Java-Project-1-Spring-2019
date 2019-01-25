@@ -39,9 +39,14 @@ public class Prison {
       else
         return randomChoice();
   }
+  public static boolean Revange(boolean lastChoice){
+      while (lastChoice != BETRAYED)
+        return SILENT;
+      return BETRAYED;
+// Revange is silent until he gets betrayed and from then on he betrayes.
   public static boolean Peace(){
         return SILENT;
-
+// Peace is always giving Silens
   public static boolean ZigZeg(boolean lastChoice){
       if (lastChoice == BETRAYED)
         return SILENT;
