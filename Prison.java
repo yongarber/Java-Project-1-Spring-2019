@@ -8,12 +8,9 @@ public class Prison {
   final static boolean SILENT = false;
 
   public static void main(String[] args){
-  boolean [] playerA = new Boolean[100];
-  boolean [] playerB = new Boolean[100];
-  playerA[0] = BETRAYED //the first move made by playerA will always start as betrayed
-  int playerAScore = 0;
-  int playerBScore = 0;
+ //the first move made by playerA will always start as betrayed
 
+  String [] strategies = ["Revenge", "Peace", "ZigZeg", "War", "titForTat"]
     //The last choice of each prisoner.
 
     boolean lastChoicePrisonerA //= BETRAYED; //Set initially to BETRAYED for testing
@@ -30,9 +27,9 @@ public class Prison {
 
     System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
        + lastChoicePrisonerB);'''
-  }
 
-  public static boolean randomChoice(){
+
+  '''public static boolean randomChoice(){
       Random rand = new Random();
       return rand.nextBoolean();
   }
@@ -41,7 +38,7 @@ public class Prison {
       if(lastChoice == BETRAYED)
         return BETRAYED;
       else
-        return randomChoice();
+        return randomChoice();'''
   }
   public static boolean Revange(boolean lastChoice){
       while (lastChoice != BETRAYED)
@@ -76,24 +73,32 @@ public class Prison {
     return last;
   }
 
-  public static void moves(player){ // checks the moves that each player makes (compares the two strategies)
-    int strat = 5;
-    switch (strat){
-      case 1: Revange(lastChoice(player))
-              break;
-      case 2: Peace()
-              break;
-      case 3: ZigZeg(lastChoice(player))
-              break;
-      case 4: War(lastChoice(player))
-              break;
-      case 5: titForTat(lastChoice(player))
-              break;
+  public static void moves(player1, player2){ // checks the moves that each player makes (compares the two strategies)
+    boolean [] playerA = new Boolean[100];
+    boolean [] playerB = new Boolean[100];
+    playerA[0] = BETRAYED
+    if (n == 0 ){
+      player1.add(Revange(lastChoice(player2)))
+      }
+    if (n == 1){
+      Peace()
     }
+    if (n == 2){
+       ZigZeg(lastChoice(player))
+    }
+    if(n == 3){
+      War(lastChoice(player))
+    }
+    if (n == 4) {
+      titForTat(lastChoice(player))
+    }
+    return (playerA, playerB)
   }
 
-  public static void finalScores(){ //compares the lists and adds up the total scores
+  public static int finalScores(playerA[], playerB[]){ //compares the lists and adds up the total scores
     int i = 0;
+    int playerAScore = 0;
+    int playerBScore = 0;
     while(i < playerA.size()){
     if (playerA[i] == BETRAYED && playerB[i] == BETRAYED){
       playerAScore = playerAScore + 2;
@@ -112,5 +117,14 @@ public class Prison {
   }
     i = i + 1;
   }
+  return playerAScore, playerBScore;
   }
   // ZigZeg is for the previous choice of your own player you switch approach
+
+  //main running Code
+  for (int i = 0; i < 25; i ++){
+    int playerA, playerB = moves((int)(i/5), i % 5);
+    playerAScore, playerBScore = finalScores(playerA, playerB);
+    System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + plaerBScore + "years");
+  }
+}
