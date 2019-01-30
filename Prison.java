@@ -10,10 +10,10 @@ public class Prison {
   public static void main(String[] args){
  //the first move made by playerA will always start as betrayed
 
-  String [] strategies = ["Revenge", "Peace", "ZigZeg", "War", "titForTat"]
+  String [] strategies = ["Revenge", "Peace", "ZigZeg", "War", "titForTat"];
     //The last choice of each prisoner.
 
-    boolean lastChoicePrisonerA //= BETRAYED; //Set initially to BETRAYED for testing
+    boolean lastChoicePrisonerA; //= BETRAYED; //Set initially to BETRAYED for testing
     boolean lastChoicePrisonerB;
 
   '''  //Example 1: PrisonerB using no prior information
@@ -26,10 +26,10 @@ public class Prison {
     lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
 
     System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
-       + lastChoicePrisonerB);'''
+       + lastChoicePrisonerB);
 
 
-  '''public static boolean randomChoice(){
+  public static boolean randomChoice(){
       Random rand = new Random();
       return rand.nextBoolean();
   }
@@ -78,21 +78,21 @@ public class Prison {
     boolean [] playerB = new Boolean[100];
     playerA[0] = BETRAYED
     if (n == 0 ){
-      player1.add(Revange(lastChoice(player2)))
+      player1.add(Revange(lastChoice(player2)));
       }
     if (n == 1){
-      Peace()
+      Peace();
     }
     if (n == 2){
-       ZigZeg(lastChoice(player))
+       ZigZeg(lastChoice(player));
     }
     if(n == 3){
-      War(lastChoice(player))
+      War(lastChoice(player));
     }
     if (n == 4) {
-      titForTat(lastChoice(player))
+      titForTat(lastChoice(player));
     }
-    return (playerA, playerB)
+    return (playerA, playerB);
   }
 
   public static int finalScores(playerA[], playerB[]){ //compares the lists and adds up the total scores
