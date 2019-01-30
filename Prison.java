@@ -8,8 +8,9 @@ public class Prison {
   final static boolean SILENT = false;
 
   public static void main(String[] args){
-  boolean [] playerA = [BETRAYED]; //for the first turn player A will always start  as Betrayed
-  boolean [] playerB = []; //player B will change depending on the strategy
+  boolean [] playerA = new Boolean[100];
+  boolean [] playerB = new Boolean[100];
+  playerA[0] = BETRAYED //the first move made by playerA will always start as betrayed
   int playerAScore = 0;
   int playerBScore = 0;
 
