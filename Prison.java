@@ -74,8 +74,8 @@ public class Prison {
   }
 
   public static void moves(player1, player2){ // checks the moves that each player makes (compares the two strategies)
-    boolean [] playerA = new Boolean[100];
-    boolean [] playerB = new Boolean[100];
+    boolean [] playerA = new Boolean[];
+    boolean [] playerB = new Boolean[];
     playerA[0] = BETRAYED
     if (n == 0 ){
       player1.add(Revange(lastChoice(player2)));
