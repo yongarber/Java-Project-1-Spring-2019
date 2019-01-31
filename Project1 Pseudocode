@@ -1,0 +1,135 @@
+import util.java.Random;
+
+public class Prison
+{
+
+    final static boolean BETRAYED = true;
+    final static boolean SILENT = false;
+
+    public static void main(String [] args)
+    {
+
+      String [] strategy = ["Revenge", "Peace", "ZigZeg", "War", "titForTat"];
+
+      public static int[] analyseResults(va, vb)
+        {
+          int yearsA = 0;
+          int yearsB = 0;
+          for (int i = 0; i < va.length(); i++)
+           {
+            if (va[i] == "S" && vb[i] == "SILENT")
+              {
+                yearsA = yearsA + 1;
+                yearsB = yearsB + 1;
+              }
+            if (va[i] == "BETRAYED" && vb[i] == "BETRAYED")
+              {
+                yearsA = yearsA + 2;
+                yearsB = yearsB + 2;
+              }
+            if (va[i] == "SILENT" && vb[i] == "BETRAYED")
+              {
+                yearsA = yearsA + 3;
+              }
+            if (va[i] == "SILENT" && vb[i] == "SILENT")
+              {
+                yearsB = yearsB + 3;
+              }
+            int [] total = [yearsA, yearsB];
+            return(total);
+           }
+        }
+
+      public static boolean[][] playoff(sA, sB)
+        {
+          boolean [][] value = new Boolean[2]
+          boolean [] hA = new Boolean [1000];
+          boolean [] hB = new Boolean [1000];
+          hA[0] = randomChoice(hA);
+          hB[0] = randomChoice(hB);
+          for (int i = 1; i < 1001; i++)
+            {
+              hA[i] = hA.strategySwitch(hB, sA);
+              hB[i] = hB.strategySwitch(hA, sB);
+            }
+          value[0] = value.add(hA);
+          value[1] = value.add(hB)
+          return(value);
+        }
+
+      public static void strategySwitch(v, n) //not void but I'm not sure what to put here as the return
+        {
+          if (n == 0)
+           {
+              return Revenge(v);
+           }
+          if (n == 1)
+            {
+              return Peace();
+            }
+          if (n == 2)
+            {
+              return ZigZeg(v);
+            }
+          if (n == 3)
+            {
+              return War(v);
+            }
+          if (n == 1)
+            {
+              return titForTat(v);
+            }
+          return ("ERROR");
+        }
+
+      public static String Revenge(boolean lastChoice)
+        {
+          while (!(lastChoice.equals("BETRAYED")))
+           {
+              return("SILENT");
+           }
+           return("BETRAYED");
+        }
+
+      public static String Peace()
+        {
+          return("SILENT");
+        }
+
+      public static String ZigZeg(boolean lastChoice)
+        {
+          if (lastChoice.equals("BETRAYED"));
+            {
+              return("SILENT");
+            }
+          return("BETRAYED");
+        }
+
+      public static String War(boolean lastChoice)
+        {
+          return("BETRAYED");
+        }
+
+      public static String titForTat(boolean lastChoice)
+        {
+          if(lastChoice.equals("BETRAYED"))
+            {
+              return("BETRAYED");
+            }
+          return("SILENT");
+        }
+
+      for (int n = 0; i < 5 * 5; i++)
+        {
+          int hA = i / 5;
+          int hB = i % 5;
+          boolean [][] choices = playoff(hA,hB);
+          boolean [] playerA = choices[0];
+          boolean [] playerB = choices[1];
+          int [] years = analyseResults(playerA, playerB);
+          int yearsA = years[0];
+          int yearsB = years[1];
+          System.out.println("Prisoner A: " + strategy[hA] + yearsA + "years. " + "Prisoner B: " + strategy[i % 5] + yearsB + "years.");
+        }
+    }
+}
