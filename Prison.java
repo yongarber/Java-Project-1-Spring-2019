@@ -10,36 +10,36 @@ public class Prison {
   public static void main(String[] args){
  //the first move made by playerA will always start as betrayed
 
-  String [] strategies = ["Revenge", "Peace", "ZigZeg", "War", "titForTat"];
+List strategies = new ArrayList("Revenge", "Peace", "ZigZeg", "War", "titForTat");
     //The last choice of each prisoner.
 
     boolean lastChoicePrisonerA; //= BETRAYED; //Set initially to BETRAYED for testing
     boolean lastChoicePrisonerB;
 
-  '''  //Example 1: PrisonerB using no prior information
-    lastChoicePrisonerB = randomChoice();
+   //Example 1: PrisonerB using no prior information
+  //   lastChoicePrisonerB = randomChoice();
 
-    System.out.println("If Random Choice is the strategy, B decides to betray : "
-       + lastChoicePrisonerB);
+  //   System.out.println("If Random Choice is the strategy, B decides to betray : "
+  //      + lastChoicePrisonerB);
 
-    //Example 2: PrisonerB using the last choice made by A to make a decision
-    lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
+  //   //Example 2: PrisonerB using the last choice made by A to make a decision
+  //   lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
 
-    System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
-       + lastChoicePrisonerB);
+  //   System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
+  //      + lastChoicePrisonerB);
 
 
-  public static boolean randomChoice(){
-      Random rand = new Random();
-      return rand.nextBoolean();
-  }
+  // public static boolean randomChoice(){
+  //     Random rand = new Random();
+  //     return rand.nextBoolean();
+  // }
 
-  public static boolean betrayIfBetrayed(boolean lastChoice){
-      if(lastChoice == BETRAYED)
-        return BETRAYED;
-      else
-        return randomChoice();'''
-  }
+  // public static boolean betrayIfBetrayed(boolean lastChoice){
+  //     if(lastChoice == BETRAYED)
+  //       return BETRAYED;
+  //     else
+  //       return randomChoice();
+  
   public static boolean Revange(boolean lastChoice){
       while (lastChoice != BETRAYED)
         return SILENT;
@@ -74,9 +74,9 @@ public class Prison {
   }
 
   public static void moves(player1, player2){ // checks the moves that each player makes (compares the two strategies)
-    boolean [] playerA = new Boolean[];
-    boolean [] playerB = new Boolean[];
-    playerA[0] = BETRAYED
+    boolean [] playerA = new Boolean[100];
+    boolean [] playerB = new Boolean[100];
+    playerA[0] = BETRAYED;
     if (n == 0 ){
       player1.add(Revange(lastChoice(player2)));
       }
@@ -110,7 +110,7 @@ public class Prison {
     if (playerA[i] == SILENT && playerB[i] == BETRAYED){
       playerAScore = playerAScore + 3;
     }
-    if (playerA[i]) == SLILENT && playerBScore == SILENT){
+    if (playerA[i] == SLILENT && playerBScore == SILENT){
       playerAScore = playerAScore + 1;
       playerBScore = playerBScore + 1;
     }
@@ -118,7 +118,7 @@ public class Prison {
     i = i + 1;
   }
   return playerAScore, playerBScore;
-  }
+  
   // ZigZeg is for the previous choice of your own player you switch approach
 
   //main running Code
@@ -127,4 +127,5 @@ public class Prison {
     playerAScore, playerBScore = finalScores(playerA, playerB);
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + plaerBScore + "years");
   }
+}
 }
