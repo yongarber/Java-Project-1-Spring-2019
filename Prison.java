@@ -10,14 +10,14 @@ public class Prison {
   public static void main(String[] args){
  //the first move made by playerA will always start as betrayed
 
-  List strategies = new ArrayList("Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat");
+String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
     //The last choice of each prisoner.
     for(int i = 0; i < 25; i++){
-    int playerA = StartGame((int)(i/5), i % 5,0);
-    int PlayerB = StartGame((int)(i/5), i % 5,1);
+    boolean [] playerA = StartGame((int)(i/5), i % 5,0);
+    boolean [] playerB = StartGame((int)(i/5), i % 5,1);
     int playerAScore = finalScores(playerA, playerB,0);
-    int playerBScore = finalScores(playerA, playerB,0);
-    System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + plaerBScore + "years");
+    int playerBScore = finalScores(playerA, playerB,1);
+    System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + playerBScore + "years");
   }}
   //boolean lastChoicePrisonerA; //= BETRAYED; //Set initially to BETRAYED for testing
    // boolean lastChoicePrisonerB;
@@ -63,7 +63,7 @@ public static boolean Revange(boolean lastChoice){
         return BETRAYED;
       }
   public static boolean WarAtThree(boolean lastChoice){
-    if (PlayerA.size()%3 ==0){
+    if (j%3 ==0){
       return BETRAYED;
     }
     else{
@@ -78,13 +78,14 @@ public static boolean Revange(boolean lastChoice){
         return SILENT;
       }
   }
-
-  public static boolean lastChoice(player){ //checks the last choice a player made
-    boolean last = player.get(player.size() - 1);
+static int j;  
+  //checks the last choice a player made
+  public static boolean lastChoice(boolean [] player){ 
+    boolean last = player[j];
     return last;
   }
   public static boolean randomMove(){
-  int rand = Math.random();
+ double rand = Math.random();
   if (rand<0.5){
     return BETRAYED;
   }
@@ -92,51 +93,58 @@ public static boolean Revange(boolean lastChoice){
     return SILENT;
   }
   }
-  public static void StartGame(strategy1,strategy2,n){
+
+  public static boolean [] StartGame(int strategy1,int strategy2,int n){
   boolean FirstmoveA = randomMove();
   boolean FirstmoveB = randomMove();
-  boolean [] playerA = new Boolean[100];
-  boolean [] playerB = new Boolean[100];
+  boolean [] playerA = new boolean[100];
+  boolean [] playerB = new boolean[100];
   playerA[0] = FirstmoveA;
   playerB[0] = FirstmoveB;
-  for (int i = 0; i<100; i++){
-    playerA.add(Switch(PlayerB,strategy1));
-    playerB.add(Switch(PlayerA,strategy1));
+  for (j = 0; j<100; j++){
+    playerA[j]= Switch(playerB,strategy1);
+    playerB[j] = Switch(playerA,strategy1);
+
   }
   if (n==0){
-    return PlayerA;
+    return playerA;
   }
   else {
-    return PlayerB;
+    return playerB;
+
   }
 }
 //we give input of 0-4 to the strategy1 and 2 values. and player is choosing who plays
-  public static void Switch(player, strategy){ // checks the moves that each player makes (compares the two strategies)
+  public static boolean Switch(boolean [] player, int strategy){ // checks the moves that each player makes (compares the two strategies)
 
-    if (strategy == 0 ){
-      if (n==0){
-      return Revange(lastChoice(player));
+      if (strategy==0){
+        boolean a =  Revange(lastChoice(player));
+        return a;
       }
-    if (strategy == 1){
-      return Peace();
-    }
-    if (strategy == 2){
-      return ZigZeg(lastChoice(player));
-    }
-    if(strategy== 3){
-      return WarAtThree(lastChoice(player));
-    }
-    if (strategy == 4) {
-      return titForTat(lastChoice(player));
-    }
-}
-  }
+      if (strategy == 1){
+        boolean b = Peace();
+        return b;
+      }
+      if (strategy == 2){
+        boolean c = ZigZeg(lastChoice(player));
+        return c;
+      }
+      if(strategy== 3){
+        boolean d =  WarAtThree(lastChoice(player));
+        return d;
+      }
+      else {
+        boolean e = titForTat(lastChoice(player));
+        return e;
+      }
 
-  public static int finalScores(playerA[], playerB[], n){ //compares the lists and adds up the total scores
+
+}
+  public static int finalScores(boolean [] playerA,boolean [] playerB, int n){ //compares the lists and adds up the total scores
     int i = 0;
     int playerAScore = 0;
     int playerBScore = 0;
-    while(i < playerA.size()){
+    while(i < 100){
       if (playerA[i] == BETRAYED && playerB[i] == BETRAYED){
           playerAScore = playerAScore + 2;
           playerBScore = playerBScore + 2;
@@ -147,7 +155,7 @@ public static boolean Revange(boolean lastChoice){
       if (playerA[i] == SILENT && playerB[i] == BETRAYED){
             playerAScore = playerAScore + 3;
         }
-      if (playerA[i] == SLILENT && playerBScore == SILENT){
+      if (playerA[i] == SILENT && playerB[i] == SILENT){
           playerAScore = playerAScore + 1;
           playerBScore = playerBScore + 1;
         }
