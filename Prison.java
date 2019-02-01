@@ -19,6 +19,7 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
     int playerBScore = finalScores(playerA, playerB,1);
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] +" " +playerAScore + "  years. " + "Prisoner B: " + strategies[i % 5]+" " + playerBScore + "  years");
   }}
+
 public static boolean Revange(boolean lastChoice){
       while (lastChoice != BETRAYED)
         return SILENT;
@@ -66,15 +67,14 @@ static int j;
     return SILENT;
   }
   }
-
+  static boolean FirstmoveA = randomMove();
+  static boolean FirstmoveB = randomMove();
   public static boolean [] StartGame(int strategy1,int strategy2,int n){
-  boolean FirstmoveA = randomMove();
-  boolean FirstmoveB = randomMove();
   boolean [] playerA = new boolean[100];
   boolean [] playerB = new boolean[100];
   playerA[0] = FirstmoveA;
   playerB[0] = FirstmoveB;
-  for (j = 0; j<100; j++){
+  for (j = 1; j<100; j++){
     playerA[j]= Switch(playerB,strategy1);
     playerB[j] = Switch(playerA,strategy1);
 
