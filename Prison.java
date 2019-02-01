@@ -1,7 +1,6 @@
 import java.util.Random;
-
+//last version
 public class Prison {
-
   //True : the prisoner betrayed.
   //False : the prisoner stayed silent.
   final static boolean BETRAYED = true;
