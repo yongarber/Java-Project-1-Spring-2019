@@ -19,33 +19,7 @@ public class Prison {
     int playerBScore = finalScores(playerA, playerB,0);
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + plaerBScore + "years");
   }}
-  //boolean lastChoicePrisonerA; //= BETRAYED; //Set initially to BETRAYED for testing
-   // boolean lastChoicePrisonerB;
-
-   //Example 1: PrisonerB using no prior information
-  //   lastChoicePrisonerB = randomChoice();
-
-  //   System.out.println("If Random Choice is the strategy, B decides to betray : "
-  //      + lastChoicePrisonerB);
-
-  //   //Example 2: PrisonerB using the last choice made by A to make a decision
-  //   lastChoicePrisonerB = betrayIfBetrayed(lastChoicePrisonerA);
-
-  //   System.out.println("If Betray If Betrayed is the strategy, B decides to betray : "
-  //      + lastChoicePrisonerB);
-
-
-  // public static boolean randomChoice(){
-  //     Random rand = new Random();
-  //     return rand.nextBoolean();
-  // }
-
-  // public static boolean betrayIfBetrayed(boolean lastChoice){
-  //     if(lastChoice == BETRAYED)
-  //       return BETRAYED;
-  //     else
-  //       return randomChoice();
-
+  
 public static boolean Revange(boolean lastChoice){
       while (lastChoice != BETRAYED)
         return SILENT;
