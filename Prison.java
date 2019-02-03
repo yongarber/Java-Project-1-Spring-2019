@@ -12,8 +12,8 @@ public class Prison {
 String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
     //The last choice of each prisoner.
     for(int i = 0; i < 25; i++){
-    boolean [] playerA = StartGame((int)(i/5), i % 5,0);
-    boolean [] playerB = StartGame((int)(i/5), i % 5,1);
+    boolean [] playerA = StartGame((i/5), i % 5,0);
+    boolean [] playerB = StartGame((i/5), i % 5,1);
     int playerAScore = finalScores(playerA, playerB,0);
     int playerBScore = finalScores(playerA, playerB,1);
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] +" " +playerAScore + "  years. " + "Prisoner B: " + strategies[i % 5]+" " + playerBScore + "  years");
@@ -78,7 +78,7 @@ static int j;
   playerB[0] = FirstmoveB;
   for (j = 1; j<100; j++){
     playerA[j]= Switch(playerB,strategy1);
-    playerB[j] = Switch(playerA,strategy1);
+    playerB[j] = Switch(playerA,strategy2);
 
   }
   if (n==0){
