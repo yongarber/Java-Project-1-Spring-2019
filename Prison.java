@@ -8,7 +8,7 @@ public class Prison {
   final static boolean SILENT = false;
 
   public static void main(String[] args){
- //the first move made by playerA will always start as betrayed
+
 
 String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
     //The last choice of each prisoner.
@@ -17,9 +17,13 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
     boolean [] playerB = StartGame((int)(i/5), i % 5,1);
     int playerAScore = finalScores(playerA, playerB,0);
     int playerBScore = finalScores(playerA, playerB,1);
+    //if (i%5==0){
+      //int sumA +=playerAScore;
+
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + playerBScore + "years");
-  }}
-  
+  }
+}
+
 public static boolean Revange(boolean lastChoice){
       while (lastChoice != BETRAYED)
         return SILENT;
@@ -52,9 +56,9 @@ public static boolean Revange(boolean lastChoice){
         return SILENT;
       }
   }
-static int j;  
+static int j;
   //checks the last choice a player made
-  public static boolean lastChoice(boolean [] player){ 
+  public static boolean lastChoice(boolean [] player){
     boolean last = player[j];
     return last;
   }
@@ -68,14 +72,17 @@ static int j;
   }
   }
 
-  public static boolean [] StartGame(int strategy1,int strategy2,int n){
+  public static boolean[][] StartGame(int strategy1,int strategy2){
+  boolean [][] total = new boolean[2][100];
   boolean FirstmoveA = randomMove();
   boolean FirstmoveB = randomMove();
-  boolean [] playerA = new boolean[100];
-  boolean [] playerB = new boolean[100];
+  boolean [] playerA = total[0];
+  boolean [] playerB = total[1];
+  //total[0] = playerA;
+  //total[1] = playerB;
   playerA[0] = FirstmoveA;
   playerB[0] = FirstmoveB;
-  for (j = 0; j<100; j++){
+  for (j = 1; j<100; j++){
     playerA[j]= Switch(playerB,strategy1);
     playerB[j] = Switch(playerA,strategy1);
 
