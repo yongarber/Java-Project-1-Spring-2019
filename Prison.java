@@ -1,5 +1,5 @@
 import java.util.Random;
-//last version
+
 public class Prison {
   //True : the prisoner betrayed.
   //False : the prisoner stayed silent.
@@ -20,9 +20,12 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
   }}
 
 public static boolean Revange(boolean lastChoice){
-      while (lastChoice != BETRAYED)
-        return SILENT;
-      return BETRAYED;
+      int check = 0;
+      while (lastChoice == BETRAYED && check ==0){
+        check= check+1;
+        return BETRAYED;
+      }
+      return SILENT;
     }
 // Revange is silent until he gets betrayed and from then on he betrayes.
   public static boolean Peace(){
