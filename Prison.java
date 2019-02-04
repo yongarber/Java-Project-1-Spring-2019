@@ -1,4 +1,3 @@
-:wq
 import java.util.Random;
 
 public class Prison {
@@ -40,8 +39,8 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
     }
   }
   System.out.println("\n"+"Total years for each strategy in comparison to all the strategies");
-  System.out.println("Revenge" +Rev + "\n"+ "Peace" + Pea + "\n" + "ZigZeg"+ Zig + "\n" + "WarAtThree"+ War + "\n" + "titForTat"+ tit+ "\n");
-  System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \n This happens becuase the first move is random but then we always have the same player starting the game.");
+  System.out.println("Revenge " +Rev + "\n"+ "Peace " + Pea + "\n" + "ZigZeg "+ Zig + "\n" + "WarAtThree "+ War + "\n" + "titForTat "+ tit+ "\n");
+  System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \nThis happens becuase the first move is random but then we always have the same player starting the game.");
 }
 
 public static boolean Revange(boolean lastChoice){
