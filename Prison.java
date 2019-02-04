@@ -15,7 +15,7 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
     int Pea = 0;
     int Zig = 0;
     int War = 0;
-    int tit = 0;
+    int tat = 0;
     for(int i = 0; i < 25; i++){
     boolean [] playerA = StartGame((i/5), i % 5,0);
     boolean [] playerB = StartGame((i/5), i % 5,1);
@@ -35,11 +35,11 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
        War = playerAScore + War;
     }
     if ((i/5)==4){
-       tit = playerAScore + tit;
+       tat = playerAScore + tat;
     }
   }
   System.out.println("\n"+"Total years for each strategy in comparison to all the strategies");
-  System.out.println("Revenge " +Rev + "\n"+ "Peace " + Pea + "\n" + "ZigZeg "+ Zig + "\n" + "WarAtThree "+ War + "\n" + "titForTat "+ tit+ "\n");
+  System.out.println("Revenge " +Rev + "\n"+ "Peace " + Pea + "\n" + "ZigZeg "+ Zig + "\n" + "WarAtThree "+ War + "\n" + "titForTat "+ tat+ "\n");
   System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \nThis happens becuase the first move is random but then we always have the same player starting the game.");
 }
 
