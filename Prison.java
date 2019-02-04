@@ -1,14 +1,13 @@
 import java.util.Random;
 
 public class Prison {
-
   //True : the prisoner betrayed.
   //False : the prisoner stayed silent.
   final static boolean BETRAYED = true;
   final static boolean SILENT = false;
 
   public static void main(String[] args){
-
+ //the first move made by playerA will always start as betrayed
 
 String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
     //The last choice of each prisoner.
@@ -17,17 +16,16 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
     boolean [] playerB = StartGame((int)(i/5), i % 5,1);
     int playerAScore = finalScores(playerA, playerB,0);
     int playerBScore = finalScores(playerA, playerB,1);
-    //if (i%5==0){
-      //int sumA +=playerAScore;
-
-    System.out.println("PrisonerA: " + strategies[(int)(i / 5)] + playerAScore + " years. " + "Prisoner B: " + strategies[i % 5] + playerBScore + "years");
-  }
-}
+    System.out.println("PrisonerA: " + strategies[(int)(i / 5)] +" " +playerAScore + "  years. " + "Prisoner B: " + strategies[i % 5]+" " + playerBScore + "  years");
+  }}
 
 public static boolean Revange(boolean lastChoice){
-      while (lastChoice != BETRAYED)
-        return SILENT;
-      return BETRAYED;
+      int check = 0;
+      while (lastChoice == BETRAYED && check ==0){
+        check= check+1;
+        return BETRAYED;
+      }
+      return SILENT;
     }
 // Revange is silent until he gets betrayed and from then on he betrayes.
   public static boolean Peace(){
@@ -71,15 +69,11 @@ static int j;
     return SILENT;
   }
   }
-
-  public static boolean[][] StartGame(int strategy1,int strategy2){
-  boolean [][] total = new boolean[2][100];
-  boolean FirstmoveA = randomMove();
-  boolean FirstmoveB = randomMove();
-  boolean [] playerA = total[0];
-  boolean [] playerB = total[1];
-  //total[0] = playerA;
-  //total[1] = playerB;
+  static boolean FirstmoveA = randomMove();
+  static boolean FirstmoveB = randomMove();
+  public static boolean [] StartGame(int strategy1,int strategy2,int n){
+  boolean [] playerA = new boolean[100];
+  boolean [] playerB = new boolean[100];
   playerA[0] = FirstmoveA;
   playerB[0] = FirstmoveB;
   for (j = 1; j<100; j++){
