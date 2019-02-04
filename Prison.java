@@ -41,6 +41,7 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
   System.out.println("\n"+"Total years for each strategy in comparison to all the strategies");
   System.out.println("Revenge " +Rev + "\n"+ "Peace " + Pea + "\n" + "ZigZeg "+ Zig + "\n" + "WarAtThree "+ War + "\n" + "titForTat "+ tat+ "\n");
   System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \nThis happens becuase the first move is random but then we always have the same player starting the game.");
+  System.out.println("\n"+"ZigZeg is our best Strategy in comparison to the others!!!");
 }
 
 public static boolean Revange(boolean lastChoice){
