@@ -1,3 +1,4 @@
+:wq
 import java.util.Random;
 
 public class Prison {
@@ -11,13 +12,37 @@ public class Prison {
 
 String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
     //The last choice of each prisoner.
+    int Rev =0;
+    int Pea = 0;
+    int Zig = 0;
+    int War = 0;
+    int tit = 0;
     for(int i = 0; i < 25; i++){
-    boolean [] playerA = StartGame((int)(i/5), i % 5,0);
-    boolean [] playerB = StartGame((int)(i/5), i % 5,1);
+    boolean [] playerA = StartGame((i/5), i % 5,0);
+    boolean [] playerB = StartGame((i/5), i % 5,1);
     int playerAScore = finalScores(playerA, playerB,0);
     int playerBScore = finalScores(playerA, playerB,1);
     System.out.println("PrisonerA: " + strategies[(int)(i / 5)] +" " +playerAScore + "  years. " + "Prisoner B: " + strategies[i % 5]+" " + playerBScore + "  years");
-  }}
+    if ((i/5)==0){
+       Rev = playerAScore + Rev;
+    }
+    if ((i/5)==1){
+       Pea = playerAScore + Pea;
+    }
+    if ((i/5)==2){
+       Zig = playerAScore + Zig;
+    }
+    if ((i/5)==3){
+       War = playerAScore + War;
+    }
+    if ((i/5)==4){
+       tit = playerAScore + tit;
+    }
+  }
+  System.out.println("\n"+"Total years for each strategy in comparison to all the strategies");
+  System.out.println("Revenge" +Rev + "\n"+ "Peace" + Pea + "\n" + "ZigZeg"+ Zig + "\n" + "WarAtThree"+ War + "\n" + "titForTat"+ tit+ "\n");
+  System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \n This happens becuase the first move is random but then we always have the same player starting the game.");
+}
 
 public static boolean Revange(boolean lastChoice){
       int check = 0;
@@ -78,7 +103,7 @@ static int j;
   playerB[0] = FirstmoveB;
   for (j = 1; j<100; j++){
     playerA[j]= Switch(playerB,strategy1);
-    playerB[j] = Switch(playerA,strategy1);
+    playerB[j] = Switch(playerA,strategy2);
 
   }
   if (n==0){
