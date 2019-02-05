@@ -7,10 +7,9 @@ public class Prison {
   final static boolean SILENT = false;
 
   public static void main(String[] args){
- //the first move made by playerA will always start as betrayed
 
+// This function is our main function: We run each strategy against each other and we sum the scores for a nice report.
 String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"};
-    //The last choice of each prisoner.
     int Rev =0;
     int Pea = 0;
     int Zig = 0;
@@ -41,9 +40,8 @@ String [] strategies = {"Revenge", "Peace", "ZigZeg", "WarAtThree", "titForTat"}
   System.out.println("\n"+"Total years for each strategy in comparison to all the strategies");
   System.out.println("Revenge " +Rev + "\n"+ "Peace " + Pea + "\n" + "ZigZeg "+ Zig + "\n" + "WarAtThree "+ War + "\n" + "titForTat "+ tat+ "\n");
   System.out.println("If you think about it, those answers make sense! \nand if you look at the iterations you see some differences in the results \nThis happens becuase the first move is random but then we always have the same player starting the game.");
-  System.out.println("\n"+"ZigZeg is our best Strategy in comparison to the others!!!");
+  System.out.println("\n"+"ZigZeg is our best Strategy in comparison to the others!!!"+"\n");
 }
-
 public static boolean Revange(boolean lastChoice){
       int check = 0;
       while (lastChoice == BETRAYED && check ==0){
@@ -71,6 +69,7 @@ public static boolean Revange(boolean lastChoice){
       return SILENT;
     }
     }
+    // WarAtThree is betraying every three moves
   public static boolean titForTat(boolean lastChoice){
       if (lastChoice == BETRAYED){
         return BETRAYED;
@@ -79,12 +78,14 @@ public static boolean Revange(boolean lastChoice){
         return SILENT;
       }
   }
+  // titForTat is if the other player betrays you betray and vice versa.
 static int j;
   //checks the last choice a player made
   public static boolean lastChoice(boolean [] player){
     boolean last = player[j];
     return last;
   }
+  // randomMove is choosing BETRAYED or SILENT randomly.
   public static boolean randomMove(){
  double rand = Math.random();
   if (rand<0.5){
@@ -94,6 +95,7 @@ static int j;
     return SILENT;
   }
   }
+  // This method "StartGame" is making the game of two strategies against each other and retutning the list of moves for each player.
   static boolean FirstmoveA = randomMove();
   static boolean FirstmoveB = randomMove();
   public static boolean [] StartGame(int strategy1,int strategy2,int n){
@@ -114,8 +116,8 @@ static int j;
 
   }
 }
-//we give input of 0-4 to the strategy1 and 2 values. and player is choosing who plays
-  public static boolean Switch(boolean [] player, int strategy){ // checks the moves that each player makes (compares the two strategies)
+//we give input of 0-4 to the strategy1 and 2 values. and player indicates who is the player right now.
+  public static boolean Switch(boolean [] player, int strategy){
 
       if (strategy==0){
         boolean a =  Revange(lastChoice(player));
@@ -169,6 +171,3 @@ static int j;
   }
 }
 }
-  // ZigZeg is for the previous choice of your own player you switch approach
-
-  //main running Code
